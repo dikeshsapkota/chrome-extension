@@ -10,7 +10,13 @@ body {
   padding:10px;
   background-color: #f3f4f6;
 }
-
+pre{
+    color: rgb(255, 255, 255);
+    background: #ffabab;
+    border-radius: 5px;
+    margin: 10px 10px;
+    width: 59%;
+}
 
 /* Input field */
 #input-el {
