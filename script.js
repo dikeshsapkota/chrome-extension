@@ -9,14 +9,15 @@ inputBtn.addEventListener("click",function(){
     console.log("saved")
     myLeads.push(inputEl.value)
     console.log(myLeads)
-   rendering();
-
+renderLeads()
 })
-function rendering(){
-    let listItems=""
- for(let i=0;i<myLeads.length;i++){
-    
-listItems+="->"+myLeads[i]+ "\n"
+
+   function renderLeads(){
+    let leadlist=""
+    for(let i=0;i<myLeads.length;i++){
+        //using template string or html in js
+        leadlist+="<li>"+myLeads[i]+"</li>"
+    }
+    leadsEl.innerHTML=leadlist
 }
-leadsEl.textContent=listItems
-}
+
