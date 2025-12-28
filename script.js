@@ -20,22 +20,20 @@ renderLeads()
 
    function renderLeads(){
  
-    leadsEl.innerHTML=""
+    let leadlist=""
     for(let i=0;i<myLeads.length;i++){
-        //create new tag
-        const aTag=document.createElement("a")
-        aTag.href=myLeads[i]
-        aTag.target="_blank"//to open in new tab
-        leadsEl.append(aTag)
-        //using template string or html in js
-        //leadlist+="<li>"+myLeads[i]+"</li>" this is simple way
-        //create and append method
-        const li=document.createElement("li")
-        li.textContent=myLeads[i]
-       aTag.append(li)
-      
+        
+        //using template string to create clickable list item
+        
+          leadlist += `
+            <li>
+                <a href="${myLeads[i]}" target="_blank" rel="noopener noreferrer">
+                    ${myLeads[i]}
+                </a>
+            </li>`
+            
     }
-    
+    leadsEl.innerHTML=leadlist
    console.log(myLeads)  //to check in the console
 }
   
