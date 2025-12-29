@@ -4,6 +4,8 @@ let myLeads=[]
 const inputEl=document.getElementById("input-el")
 const inputBtn=document.getElementById("input-btn")
 const leadsEl=document.getElementById("leads")//cache element
+localStorage.setItem("myleads","[]")
+
 inputBtn.addEventListener("click",function(){
        const lead = inputEl.value.trim() // remove extra spaces
 
