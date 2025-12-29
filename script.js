@@ -1,11 +1,17 @@
 
 let myLeads=[]
-//let and const can declare variables and const cant be reassignec
+
 const inputEl=document.getElementById("input-el")
 const inputBtn=document.getElementById("input-btn")
+const deleteBtn = document.getElementById("delete-btn")
 const leadsEl=document.getElementById("leads")//cache element
-localStorage.setItem("myleads","[]")
+// Load leads from localStorage
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
 
+if (leadsFromLocalStorage) {
+    myLeads = leadsFromLocalStorage
+    renderLeads()
+}
 inputBtn.addEventListener("click",function(){
        const lead = inputEl.value.trim() // remove extra spaces
 
@@ -17,7 +23,15 @@ inputBtn.addEventListener("click",function(){
     console.log("saved")//to check button is working or not
     myLeads.push(inputEl.value)
    inputEl.value=""//to clear the input field after clicking the button
-renderLeads()
+localStorage.setItem("myLeads", JSON.stringify(myLeads))
+   renderLeads()
+})
+
+// Delete all (double click)
+deleteBtn.addEventListener("dblclick", function () {
+    localStorage.clear()
+    myLeads = []
+    renderLeads()
 })
 
    function renderLeads(){
@@ -36,7 +50,7 @@ renderLeads()
             
     }
     leadsEl.innerHTML=leadlist
-   console.log(myLeads)  //to check in the console
+   console.log(typeof myLeads)  //to check in the console
 }
   
 
